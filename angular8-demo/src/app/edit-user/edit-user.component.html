@@ -1,0 +1,163 @@
+<div class="col-md-6 user-container">
+  <h2 class="text-center">Edit User</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="hidden">
+      <input type="text" formControlName="id" placeholder="id" name="id" class="form-control" id="id">
+    </div>
+    <h4>Personal Details</h4>
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" formControlName="firstName" placeholder="FirstName" name="firstName" class="form-control" id="firstName">
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" formControlName="lastName" placeholder="lastName" name="lastName" class="form-control" id="lastName">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="class"> Class:</label>
+        <input type="number" min="1" max="10" formControlName="Class" placeholder="Enter Class from 1 to 10" name="Class" class="form-control" id="Class">
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="dob">DOB:</label>
+        <input type="date" max="2017-01-01" formControlName="dob" placeholder="Last name" name="lastName" class="form-control" id="dob">
+      </div>
+    </div>
+
+    <br>
+    <h4>Parents Details</h4>
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="fatherName">Father Name:</label>
+        <input type="text" formControlName="fatherName" placeholder="Father Name" name="fatherName" class="form-control" id="motherName">
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="motherName">Mother Name:</label>
+        <input type="text" formControlName="motherName" placeholder="Mother Name" name="motherName" class="form-control" id="motherName">
+      </div>
+    </div>
+
+
+    <br>
+    <h4>Contact Details</h4>
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="email">EMail:</label>
+        <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="altEmail">Alt EMail:</label>
+        <input type="email" formControlName="altEmail" placeholder="Email" name="altEmail" class="form-control" id="altEmail">
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="password">Password:</label>
+        <input type="password" formControlName="password" placeholder="password" name="password" class="form-control" id="password">
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="cPassword">Confirm Password:</label>
+        <input type="password" formControlName="cPassword" placeholder="Confirm Password" name="cPassword" class="form-control" id="cPassword">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="number" formControlName="phoneNumber" placeholder="Mobile Number" name="phoneNumber" class="form-control" id="phoneNumber">
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="altPhoneNumber">Phone Number:</label>
+        <input type="number" formControlName="altPhoneNumber" placeholder="Alt Mobile Number" name="altPhoneNumber" class="form-control" id="altPhoneNumber">
+      </div>
+    </div>
+
+    <br>
+    <h4>Current Address</h4>
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="address1">Address Line 1:</label>
+        <input type="text" formControlName="address1" placeholder="hosue number/ building no." name="address1" class="form-control" id="address1">
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="address2">Address Line 2:</label>
+        <input type="text" formControlName="address2" placeholder="City" name="address2" class="form-control" id="address2">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="district">District:</label>
+        <input type="text" formControlName="district" placeholder="District" name="district" class="form-control" id="district">
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="state">State:</label>
+        <input type="text" formControlName="state" placeholder="State" name="state" class="form-control" id="state">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="pinCode">ZIP Code:</label>
+        <input type="number" formControlName="pinCode" placeholder="Eg:123456" name="pinCode" class="form-control" id="pinCode">
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="country">Country:</label>
+        <input type="text" formControlName="country" placeholder="Country" name="country" class="form-control" id="country">
+      </div>
+    </div>
+
+    <br>
+    <h4>Permanent Address</h4>
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="pAddress1">Address Line 1:</label>
+        <input type="text" formControlName="pAddress1" placeholder="hosue number/ building no." name="pAddress1" class="form-control" id="pAddress1">
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="pAddress2">Address Line 2:</label>
+        <input type="text" formControlName="pAddress2" placeholder="City" name="pAddress2" class="form-control" id="pAddress2">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="pDistrict">District:</label>
+        <input type="text" formControlName="pDistrict" placeholder="District" name="pDistrict" class="form-control" id="pDistrict">
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="pState">State:</label>
+        <input type="text" formControlName="pState" placeholder="State" name="pState" class="form-control" id="pState">
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="pPinCode">ZIP Code:</label>
+        <input type="number" formControlName="pPinCode" placeholder="Eg:123456" name="pPinCode" class="form-control" id="pPinCode">
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="pCountry">Country:</label>
+        <input type="text" formControlName="pCountry" placeholder="Country" name="pCountry" class="form-control" id="pCountry">
+      </div>
+    </div>
+    <button class="btn btn-success">Update</button>
+  </form>
+</div>

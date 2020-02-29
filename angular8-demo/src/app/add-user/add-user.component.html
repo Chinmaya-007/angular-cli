@@ -1,0 +1,196 @@
+<div class="col-md-6 user-container">
+  <h4 class="text-center">Register</h4>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()" style="padding-bottom: 30px; background-color: aliceblue; border-radius: 15px; width: 120%;margin-left:-10% ;">
+
+    <div style="padding-left: 15px; padding-right: 15px; padding-top: 15px;">
+    <h4>Personal Details</h4>
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" required formControlName="firstName" #firstName placeholder="FirstName" name="firstName" class="form-control" id="firstName">
+        <small class="text-danger" *ngIf="addForm.controls['firstName'].hasError('required') && addForm.controls['firstName'].touched">First Name is required</small>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" required formControlName="lastName" placeholder="lastName" name="lastName" class="form-control" id="lastName">
+        <small class="text-danger" *ngIf="addForm.controls['lastName'].hasError('required') && addForm.controls['lastName'].touched">Last Name is required</small>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="class"> Class:</label>
+        <input type="number" required min="1" max="10" formControlName="class" placeholder="Enter Class from 1 to 10" name="class" class="form-control" id="class">
+        <small class="text-danger" *ngIf="addForm.controls['class'].hasError('required') && addForm.controls['class'].touched">Class is required</small>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="dob">DOB:</label>
+        <input type="date" required max="2017-01-01" formControlName="dob" placeholder="Last name" name="lastName" class="form-control" id="dob">
+        <small class="text-danger" *ngIf="addForm.controls['dob'].hasError('required') && addForm.controls['dob'].touched">DOB is required</small>
+      </div>
+    </div>
+
+    <br>
+    <h4>Parents Details</h4>
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="fatherName">Father Name:</label>
+        <input type="text" required formControlName="fatherName" placeholder="Father Name" name="fatherName" class="form-control" id="fatherName">
+        <small class="text-danger" *ngIf="addForm.controls['fatherName'].hasError('required') && addForm.controls['fatherName'].touched">Father Name is required</small>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="motherName">Mother Name:</label>
+        <input type="text" required formControlName="motherName" placeholder="Mother Name" name="motherName" class="form-control" id="motherName">
+        <small class="text-danger" *ngIf="addForm.controls['motherName'].hasError('required') && addForm.controls['motherName'].touched">Mother Name is required</small>
+      </div>
+    </div>
+
+
+    <br>
+    <h4>Contact Details</h4>
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="email">EMail:</label>
+        <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        <div  *ngIf="!addForm.controls['email'].valid">
+          <small class="text-danger" *ngIf="addForm.controls['email'].touched && addForm.controls['email'].hasError('required')">Email is required</small>
+          <small class="text-danger" *ngIf="addForm.controls['email'].touched && addForm.controls['email'].hasError('pattern')">Email is invalid</small>
+        </div>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="altEmail">Alt EMail:</label>
+        <input type="email" formControlName="altEmail" placeholder="Email" name="altEmail" class="form-control" id="altEmail" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        <small class="text-danger" *ngIf="addForm.controls['altEmail'].touched && addForm.controls['altEmail'].hasError('pattern')">Email is invalid</small>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="password">Password:</label>
+        <input type="password" formControlName="password" minlength="8" placeholder="password" name="password" class="form-control" id="password">
+        <div  *ngIf="!addForm.controls['password'].valid">
+          <small class="text-danger" *ngIf="addForm.controls['password'].touched && addForm.controls['password'].hasError('required')">Password is required</small>
+          <small class="text-danger" *ngIf="addForm.controls['password'].touched && addForm.controls['password'].hasError('minlength')">Password must be min 8 characters!</small>
+        </div>
+        
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="cPassword">Confirm Password:</label>
+        <input type="password" formControlName="cPassword" length="8" placeholder="Confirm Password" name="cPassword" class="form-control" id="cPassword">
+        
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" required formControlName="phoneNumber" minlength="10" maxlength="10" placeholder="Mobile Number" name="phoneNumber" class="form-control" id="phoneNumber">
+        <div  *ngIf="!addForm.controls['phoneNumber'].valid">
+          <small class="text-danger" *ngIf="addForm.controls['phoneNumber'].touched && addForm.controls['phoneNumber'].hasError('required')">Mobile Number is required</small>
+          <small class="text-danger" *ngIf="addForm.controls['phoneNumber'].touched && (addForm.controls['phoneNumber'].hasError('minlength') )">Invalid Mobile Number!</small>
+        </div>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="altPhoneNumber">Phone Number:</label>
+        <input type="tel" formControlName="altPhoneNumber" minlength="10" placeholder="Alt Mobile Number" name="altPhoneNumber" class="form-control" id="altPhoneNumber">
+        <small class="text-danger" *ngIf="addForm.controls['altPhoneNumber'].touched && (addForm.controls['altPhoneNumber'].hasError('minlength') )">Invalid Mobile Number!</small>
+      </div>
+    </div>
+
+    <br>
+    <h4>Current Address</h4>
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="address1">Address Line 1:</label>
+        <input type="text" required formControlName="address1" placeholder="hosue number/ building no." name="address1" class="form-control" id="address1">
+        <small class="text-danger" *ngIf="addForm.controls['address1'].touched && addForm.controls['address1'].hasError('required')">Address Line 1 is required</small>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="address2">Address Line 2:</label>
+        <input type="text" required formControlName="address2" placeholder="City" name="address2" class="form-control" id="address2">
+        <small class="text-danger" *ngIf="addForm.controls['address2'].touched && addForm.controls['address2'].hasError('required')">Address Line 2 is required</small>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="district">District:</label>
+        <input type="text" formControlName="district" placeholder="District" name="district" class="form-control" id="district">
+        <small class="text-danger" *ngIf="addForm.controls['district'].touched && addForm.controls['district'].hasError('required')">District is required</small>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="state">State:</label>
+        <input type="text" formControlName="state" placeholder="State" name="state" class="form-control" id="state">
+        <small class="text-danger" *ngIf="addForm.controls['state'].touched && addForm.controls['state'].hasError('required')">State is required</small>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="pinCode">ZIP Code:</label>
+        <input type="text" name="pinCode" pattern="[0-9]{6}" length="6" formControlName="pinCode" placeholder="Eg:123456" name="pinCode" class="form-control" id="pinCode">
+        <small class="text-danger" *ngIf="addForm.controls['pinCode'].touched && addForm.controls['pinCode'].hasError('required')">Zip Code is required</small>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="country">Country:</label>
+        <input type="text" formControlName="country" placeholder="Country" name="country" class="form-control" id="country">
+        <small class="text-danger" *ngIf="addForm.controls['country'].touched && addForm.controls['country'].hasError('required')">Country is required</small>
+      </div>
+    </div>
+
+    <br>
+    <h4>Permanent Address</h4>
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="pAddress1">Address Line 1:</label>
+        <input type="text" formControlName="pAddress1" placeholder="hosue number/ building no." name="pAddress1" class="form-control" id="pAddress1">
+        <small class="text-danger" *ngIf="addForm.controls['pAddress1'].touched && addForm.controls['pAddress1'].hasError('required')">Address Line 1 is required</small>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="pAddress2">Address Line 2:</label>
+        <input type="text" formControlName="pAddress2" placeholder="City" name="pAddress2" class="form-control" id="pAddress2">
+        <small class="text-danger" *ngIf="addForm.controls['pAddress2'].touched && addForm.controls['pAddress2'].hasError('required')">Address Line 2 is required</small>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="pDistrict">District:</label>
+        <input type="text" formControlName="pDistrict" placeholder="District" name="pDistrict" class="form-control" id="pDistrict">
+        <small class="text-danger" *ngIf="addForm.controls['pDistrict'].touched && addForm.controls['pDistrict'].hasError('required')">District is required</small>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="pState">State:</label>
+        <input type="text" formControlName="pState" placeholder="State" name="pState" class="form-control" id="pState">
+        <small class="text-danger" *ngIf="addForm.controls['pState'].touched && addForm.controls['pState'].hasError('required')">State is required</small>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label for="pPinCode">ZIP Code:</label>
+        <input type="text" name="pin" pattern="[0-9]{6}" length="6" formControlName="pPinCode" placeholder="Eg:123456" name="pPinCode" class="form-control" id="pPinCode">
+        <small class="text-danger" *ngIf="addForm.controls['pPinCode'].touched && addForm.controls['pPinCode'].hasError('required')">Zip Code is required</small>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="pCountry">Country:</label>
+        <input type="text" formControlName="pCountry" placeholder="Country" name="pCountry" class="form-control" id="pCountry">
+        <small class="text-danger" *ngIf="addForm.controls['pCountry'].touched && addForm.controls['pCountry'].hasError('required')">Country is required</small>
+      </div>
+    </div>
+    <button class="btn btn-success" [disabled]="!addForm.valid">Register</button>
+  </div>
+  </form>
+</div>

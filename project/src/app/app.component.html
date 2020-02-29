@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="alert alert-danger" *ngIf="errorMsg">
+    {{errorMsg}}
+  </div>
+  <div id="formContent" *ngIf="!submitted" style="width: 36%; height: 75%; align-content: center; margin-top: 150px; margin-left: 32%; background-color: honeydew;">
+          <br>
+          <img src="img/user.png" id="icon" class="profile-img-card" alt="User Icon" style="width:100px;height:100px;" />
+          <br>
+      <!-- Login Form -->
+      <form #loginForm="ngForm" style="padding:20px 20px 20px 20px" novalidate (ngSubmit)="onSubmit()">
+        
+        
+        <br>
+        <label>Email</label>
+        <input type="email" required #email="ngModel" [class.is-invalid]="email.invalid && email.touched" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+         name="email" placeholder="Email" class="form-control" [(ngModel)]="userModel.email">
+        <div *ngIf="email.errors && (email.invalid || email.touched)">
+          <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
+          <small class="text-danger" *ngIf="email.errors.pattern">Email is invalid</small>
+        </div>
+        <br>
+
+        <label>Password</label>
+        <input type="password" required #password="ngModel" [class.is-invalid]="password.invalid && password.touched" minlength="8"
+        name="password" placeholder="password" class="form-control" [(ngModel)]="userModel.password">
+        <div *ngIf="password.errors && (password.invalid || password.touched)">
+          <small class="text-danger" *ngIf="password.errors.required">Password is required</small>
+          <small class="text-danger" *ngIf="password.errors.minlength">Password is invalid</small>
+        </div>
+
+        <br>
+        <input type="submit" [disabled]='loginForm.form.invalid' class="btn btn-primary" style="margin-left: 40%;" value="Log In">
+        
+      </form>
+      <!-- sign up  -->
+      <div id="formFooter" style="margin-left: 20%; padding-bottom: 30px;">
+        <br>
+      <span>Not having an account?  <a class="underlineHover" href="registration.html">Register now</a></span>
+      </div>
+
+  </div>
+</div>

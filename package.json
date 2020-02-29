@@ -151,5 +151,8 @@
     "hooks": {
       "pre-push": "node ./bin/devkit-admin hooks/pre-push"
     }
+  },
+  "dependencies": {
+    "@angular/cli": "^9.0.3"
   }
 }

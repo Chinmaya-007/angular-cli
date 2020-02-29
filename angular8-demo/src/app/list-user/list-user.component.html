@@ -1,0 +1,50 @@
+<div class="col user-container">
+  <h2 style="margin: auto"> User Details</h2>
+  <table class="table table-striped" >
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Class</th>
+      <th>DOB</th>
+      <th>Father Name</th>
+      <th>Mother Name</th>
+      <th>Email</th>
+      <th>Alt Email</th>
+      <th>Mobile No</th>
+      <th>Alt Mobile No</th>
+      <th>Address Line1</th>
+      <th>Address Line2</th>
+      <th>District</th>
+      <th>State</th>
+      <th>PIN Code</th>
+      <th>Country</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td class="hidden">{{user.id}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.class}}</td>
+      <td>{{user.dob}}</td>
+      <td>{{user.fatherName}}</td>
+      <td>{{user.motherName}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.altEmail}}</td>
+      <td>{{user.phoneNumber}}</td>
+      <td>{{user.altPhoneNumber}}</td>
+      <td>{{user.address1}}</td>
+      <td>{{user.address2}}</td>
+      <td>{{user.district}}</td>
+      <td>{{user.state}}</td>
+      <td>{{user.pinCode}}</td>
+      <td>{{user.country}}</td>
+      <td><button class="btn btn-success" (click)="deleteUser(user)"> Delete</button>
+        </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
