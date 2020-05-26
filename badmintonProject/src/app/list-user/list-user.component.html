@@ -1,0 +1,113 @@
+<div class="col user-container" style="z-index: 3;">
+  <div class="loadingio-spinner-spinner-l8u0hpc94i" *ngIf="showLoadingIndicator" style="top:45%; left:45%;z-index: 3;">
+    <div class="ldio-5ww8kevlr9f">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <h1 class="well">User Details</h1>
+	    <div class="row">
+				<form >
+					<div class="col-sm-12">
+            <div class="col-lg-12 well">
+              <h3 >Personal Details</h3>
+              <div class="row">
+                <div class="col-sm-6 form-group">
+                  <label>First Name</label>
+                  <input [(ngModel)]="firstName" name="firstname" [disabled]="edit" type="text" class="form-control">
+                </div>
+                <div class="col-sm-6 form-group">
+                  <label>Last Name</label>
+                  <input [(ngModel)]="lastName" name="lastname"[disabled]="edit" type="text"  class="form-control">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4 form-group">
+                  <label>Age</label>
+                  <input [(ngModel)]="age" name="age1" [disabled]="edit" type="text"  class="form-control">
+                </div>	
+                <div class="col-sm-4 form-group">
+                  <label>Gender</label>
+                  <input [(ngModel)]="gender" name="gender1" [disabled]="edit" type="text"  class="form-control">
+                </div>	
+              </div>
+              <div class="row">					
+                <div class="col-sm-6 form-group">
+                  <label>Phone Number</label>
+                  <input [(ngModel)]="phoneNumber" name="phone" [disabled]="true" type="text"  class="form-control">
+                </div>		
+                <div class="col-sm-6 form-group">
+                  <label>Email Address</label>
+                  <input [(ngModel)]="email" name="mail" [disabled]="edit" type="text" class="form-control">
+                </div>
+              </div>
+            </div>  					
+						
+						
+            <div class="col-lg-12 well">
+              <h3 >Parents Details</h3>
+              <div class="row">
+                <div class="col-sm-6 form-group">
+                  <label>Father Name</label>
+                  <input [(ngModel)]="fatherName" name="fathername" [disabled]="edit" type="text"  class="form-control">
+                </div>		
+                <div class="col-sm-6 form-group">
+                  <label>Mother Name</label>
+                  <input [(ngModel)]="motherName" name="mothername" [disabled]="edit" type="text" class="form-control">
+                </div>	
+              </div>
+            </div>
+            
+            <div class="col-lg-12 well">
+              <h3 >Address Details</h3>
+              <div class="row">
+                <div class="col-sm-4 form-group">
+                  <label>Locality</label>
+                  <input [(ngModel)]="address1" name="addressone"[disabled]="edit" type="text"  class="form-control">
+                </div>	
+                <div class="col-sm-4 form-group">
+                  <label>City</label>
+                  <input [(ngModel)]="address2" name="addresstwo" [disabled]="edit" type="text"  class="form-control">
+                </div>	
+                <div class="col-sm-4 form-group">
+                  <label>District</label>
+                  <input [(ngModel)]="district" name="district1" [disabled]="edit" type="text"  class="form-control">
+                </div>	
+              </div>
+              <div class="row">
+                <div class="col-sm-4 form-group">
+                  <label>State</label>
+                  <input [(ngModel)]="state" name="state1" [disabled]="edit" type="text"  class="form-control">
+                </div>	
+                <div class="col-sm-4 form-group">
+                  <label>Country</label>
+                  <input [(ngModel)]="country" name="country1"[disabled]="edit" type="text"  class="form-control">
+                </div>	
+                <div class="col-sm-4 form-group">
+                  <label>ZIP Code</label>
+                  <input [(ngModel)]="pinCode" name="pincode" [disabled]="edit" type="text" class="form-control">
+                </div>	
+              </div>	
+            </div>
+					
+          <input  *ngIf="edit" type="button" class="btn btn-lg btn-info" (click)="updateEdit()" value="Edit">
+          <input  *ngIf="!edit" type="button" class="btn btn-lg btn-info" (click)="update()" value="update">
+          				
+					</div>
+				</form> 
+			</div>
+	  
+	</div>
+</div>

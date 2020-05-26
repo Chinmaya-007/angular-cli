@@ -1,0 +1,51 @@
+<div class="col user-container" style="height:600px;">
+  <div class="loadingio-spinner-spinner-l8u0hpc94i" *ngIf="showLoadingIndicator" style="top:45%; left:45%">
+    <div class="ldio-5ww8kevlr9f" style="z-index: 2;">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <button onclick="window.history.back()" style="border-radius: 50%;margin-left: 5%;display: inline-block;">&#8249;&#8249;</button>
+  <h2 style="margin: auto" style="display: inline-block;margin-left: 3%;"> Bidding History</h2>
+  <table class="table table-striped" style="width: 80%; margin-left: 10%;" >
+    <thead>
+      <tr>
+        <th class="hidden">Id</th>
+        <th>Tournament</th>
+        <th>Player 1</th>
+        <th>Player 2</th>
+        <th>Player 3</th>
+        <th>Player 4</th>
+        <th>Player 5</th>
+      </tr>
+    </thead>  
+    <tbody>
+      <tr *ngFor="let user of users" >
+        
+        <td>{{user.tournament}}</td>
+        <td>{{user.player1}}</td>
+        <td>{{user.player2}}</td>
+        <td>{{user.player3}}</td>
+        <td>{{user.player4}}</td>
+        <td>{{user.player5}}</td>
+        
+        
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <br>
+</div>
+  

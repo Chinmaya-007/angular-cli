@@ -4,12 +4,12 @@
     <h2 style="margin: auto">Login </h2>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="username">Email:</label>
-        <input type="email" required class="form-control" formControlName="username" id="username" autocomplete="off"
-        pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        <label for="username">Phone Number:</label>
+        <input type="text" required class="form-control" formControlName="username" id="username" autocomplete="off"
+        pattern="[123456789][0-9]{9}">
         <div  *ngIf="!loginForm.controls['username'].valid">
-          <small class="text-danger" *ngIf="loginForm.controls['username'].touched && loginForm.controls['username'].hasError('required')">Email is required</small>
-          <small class="text-danger" *ngIf="loginForm.controls['username'].touched && loginForm.controls['username'].hasError('pattern')">Email is invalid</small>
+          <small class="text-danger" *ngIf="loginForm.controls['username'].touched && loginForm.controls['username'].hasError('required')">Phone no. is required</small>
+          <small class="text-danger" *ngIf="loginForm.controls['username'].touched && loginForm.controls['username'].hasError('pattern')">Phone no. is invalid</small>
         </div>
       </div>
       <div class="form-group">

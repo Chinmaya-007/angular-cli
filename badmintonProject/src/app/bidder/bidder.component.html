@@ -1,0 +1,29 @@
+<div class="container" style="padding-bottom: 3%;" >
+  <div class="col-md-6 login-container" style="margin-left: 25%;">
+    <h2 style="margin: auto">Bidder Login </h2>
+    <form [formGroup]="bidderForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Phone Number:</label>
+        <input type="text" required class="form-control" formControlName="username" id="username" autocomplete="off"
+        ng-pattern="/^[6-9][0-9]{9}$/">
+        <div  *ngIf="!bidderForm.controls['username'].valid">
+          <small class="error" *ngIf="bidderForm.controls['username'].touched && bidderForm.controls['username'].hasError('required')">Phone Number is required</small>
+          <small class="error" *ngIf="bidderForm.controls['username'].touched && bidderForm.controls['username'].hasError('pattern')">Phone Number is invalid</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" formControlName="password" id="pwd" autocomplete="off">
+        <small class="error" *ngIf="bidderForm.controls['password'].hasError('required') && bidderForm.controls['password'].touched">Password is required</small>
+      </div>
+      
+      <span class="text-danger text-center">{{credential_error_msg}}</span><br>
+      <button class="btn btn-success" [disabled]="bidderForm.invalid">Login</button>
+      <div id="formFooter" style="margin-left: 20%; padding-bottom: 30px;">
+        <br>
+      
+      </div>
+    </form>
+  </div>
+</div>
+  

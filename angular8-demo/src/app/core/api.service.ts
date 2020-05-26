@@ -9,7 +9,7 @@ import {ApiResponse} from "../model/api.response";
 export class ApiService {
 
   constructor(private http: HttpClient) { }
-  baseUrl: string = 'http://localhost/slimapp/public/index.php/api1/students';
+  baseUrl: string = 'http://localhost/slimapp/public/index.php/api1/students/';
 
   login(loginPayload) : Observable<ApiResponse> {
     const httpOptions = {
@@ -17,7 +17,7 @@ export class ApiService {
         'Content-Type':  'application/json'
       })
     }
-    return this.http.post<ApiResponse>('http://localhost/slimapp/public/index.php/api1/login', loginPayload, httpOptions);
+    return this.http.post<ApiResponse>('http://slimapp/api1/login', loginPayload, httpOptions);
   }
 
   getUsers() : Observable<ApiResponse> {
@@ -35,7 +35,7 @@ export class ApiService {
       })
     }
     console.log(user);
-    return this.http.post<ApiResponse>('http://localhost/slimapp/public/index.php/api1/students',user,httpOptions);
+    return this.http.post<ApiResponse>('http://localhost/slimapp/public/index.php/api1/register',user,httpOptions);
   }
 
   updateUser(user: User): Observable<ApiResponse> {

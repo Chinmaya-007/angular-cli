@@ -1,0 +1,165 @@
+<div class="container" style="margin-left: auto;">
+  <form [formGroup]="biddingForm" (ngSubmit)="onSubmit()">
+    <div class="bidding">
+      <br>
+      <div> <a class="underlineHover" routerLink="/biddinghistory" style="margin-left:45% ;">Go to bidding history</a></div>
+      <h2 style="margin-left: 43%;">Select Players</h2>
+      <br>
+      <br>
+      <div class="row container">
+        <div class="col-md-6" style="margin-left: 25%;">
+          
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <span>Select Age
+                  <select  formControlName="age" name="age[]" id="age" class="form-control"  (change)="onChangeAgeGroup($event.target.value)" required >
+                    
+                    <option value =14 > Under 14</option>
+                    <option value =18 >Under 18</option>
+                    <option value =22>Senior</option>
+                
+                  </select>
+                </span>
+              </div>
+        
+              <div class="col-sm-6 form-group">
+                <span>Tournament
+                  <select formControlName="match"  id="match" class="form-control" required>
+                    <option *ngFor="let match of matches"  [value]="match.id" >{{match.name}}</option>
+                  </select>
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <b>Credits Left<span class="text-danger text-center"> {{points_message}}</span><br></b>
+              </div>
+        
+              <div class="col-sm-6 form-group">
+                
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <span>Player 1</span>
+              </div>
+        
+              <div class="col-sm-6 form-group">
+                <select formControlName="player1" id="player1" #player1 class="form-control" (change)="onChangePlayer1($event.target.value)" required>
+                  
+                  <option *ngFor="let player1 of players"  [value]="player1.id" >{{player1.firstName}}{{" "}}{{player1.lastName}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                
+              </div>
+        
+              <div class="col-sm-6 form-group">
+                <span class="text-danger text-center">{{credential_error_msg1}}</span><br>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <span>Player 2</span>
+              </div>
+        
+              <div class="col-sm-6 form-group">
+                <select formControlName="player2" id="player2"  class="form-control" (change)="onChangePlayer2($event.target.value)" required>
+                  
+                  <option *ngFor="let player2 of players" [value]="player2.id">{{player2.firstName}}{{" "}}{{player2.lastName}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                
+              </div>
+        
+              <div class="col-sm-6 form-group">
+                <span class="text-danger text-center">{{credential_error_msg2}}</span><br>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <span>Player 3</span>
+              </div>
+        
+              <div class="col-sm-6 form-group">
+                <select formControlName="player3" id="player3" class="form-control" (change)="onChangePlayer3($event.target.value)"required>
+                  
+                  <option *ngFor="let player3 of players" [value]="player3.id">{{player3.firstName}}{{" "}}{{player3.lastName}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                
+              </div>
+        
+              <div class="col-sm-6 form-group">
+                <span class="text-danger text-center">{{credential_error_msg3}}</span><br>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <span>Player 4</span>
+              </div>
+        
+              <div class="col-sm-6 form-group">
+                <select formControlName="player4" id="player4" class="form-control" (change)="onChangePlayer4($event.target.value)"required>
+                  
+                  <option *ngFor="let player4 of players" [value]="player4.id">{{player4.firstName}}{{" "}}{{player4.lastName}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                
+              </div>
+        
+              <div class="col-sm-6 form-group">
+                <span class="text-danger text-center">{{credential_error_msg4}}</span><br>
+              </div>
+            </div>
+            
+
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <span>Player 5</span>
+              </div>
+        
+              <div class="col-sm-6 form-group">
+                <select formControlName="player5" id="player5" class="form-control" (change)="onChangePlayer5($event.target.value)"required>
+                  
+                  <option *ngFor="let player5 of players" [value]="player5.id">{{player5.firstName}}{{" "}}{{player5.lastName}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                
+              </div>
+        
+              <div class="col-sm-6 form-group">
+                <span class="text-danger text-center">{{credential_error_msg5}}</span><br>
+              </div>
+            </div>
+            <span class="text-danger text-center">{{credential_error_msg}}</span><br>
+            <button class="btn btn-success" style="width: 30%; margin-left: 35%;" id="submit" [disabled]="biddingForm.invalid" >Submit</button>
+            <br>
+            <br>
+          
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

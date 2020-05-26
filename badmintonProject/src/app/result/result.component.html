@@ -1,0 +1,55 @@
+<div class="container" >
+  <main id="main"> 
+    <form  [formGroup]="resultForm" >
+        
+        <div class="col-sm-12">
+            <div class="row container" style="margin:150px 10px 150px 10px">
+              <div class="row">
+                <div class="col-sm-6 form-group">
+                  <span>Select Age
+                    <select class="form-control col-md-3" name="age[]"  id="age"  ><br>
+                      <option value = "-1" selected>[choose yours]</option>
+                      <option value =14 > Under 14</option>
+                      <option value =18 >Under 18</option>
+                      <option value =22>Senior</option>
+                  
+                    </select>
+                  </span>
+                </div>
+          
+                <div class="col-sm-6 form-group">
+                  <span>Tournament
+                    <select formControlName="match" class="form-control" (change)="onChangeMatchGroup($event.target.value)">
+                      
+                      <option *ngFor="let match of matches"  [value]="match.id" >{{match.name}}</option>
+                    </select>
+                  </span>
+                </div>
+              </div>
+              <div class="col-md-6 form-group" style="margin-left: 25%;">
+                <br>
+                <table class="table table-striped col-sm-8" >
+                    <thead>
+                    <tr>
+                      
+                      <th class="col-sm-6">Name</th>
+                      <th>Points</th>
+                
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let user of results">
+                      
+                      <td>{{user.name}}</td>
+                      <td>{{user.totalPoints}}</td>
+                    </tr>
+                    </tbody>
+                  </table>
+              </div>
+          </div>
+        </div> 
+    </form>
+  </main><!-- End #main -->
+</div>
+  
+

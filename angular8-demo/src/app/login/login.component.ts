@@ -19,30 +19,25 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
+    console.log(this.loginForm.controls.username.value);
     const loginPayload = {
-      email: this.loginForm.controls.username.value,
+      phoneNumber: +this.loginForm.controls.username.value,
       password: this.loginForm.controls.password.value
     }
-    this.apiService.login(loginPayload).subscribe(data => {
-      //console.log("data"+data.result);
-      if(data.status === 200) {
-        
-        localStorage.setItem('token', data.result.token);
-        this.router.navigate(['list-user']);
-      }else {
-        //this.router.navigate(['list-user']);
-        this.invalidLogin = true;
-        alert(data.message);
-      }
-      
+    this.apiService.login(this.loginForm.value).subscribe(data => {
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('id', data.data);
+      this.router.navigate(['list-user']);
+      console.log("data"+data.token);
     },
     error=>{
-      console.log("here");
+      //console.log("here");
       
       this.credential_error_msg="Invalid Login";
     }
     );
   }
+  
 
   ngOnInit() {
     window.localStorage.removeItem('token');

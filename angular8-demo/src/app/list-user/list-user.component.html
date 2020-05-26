@@ -24,7 +24,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let user of users">
+    <tr >
       <td class="hidden">{{user.id}}</td>
       <td>{{user.firstName}}</td>
       <td>{{user.lastName}}</td>
@@ -42,7 +42,7 @@
       <td>{{user.state}}</td>
       <td>{{user.pinCode}}</td>
       <td>{{user.country}}</td>
-      <td><button class="btn btn-success" (click)="deleteUser(user)"> Delete</button>
+      <td><button class="btn btn-success" (click)="deleteUser()"> Delete</button>
         </td>
     </tr>
     </tbody>

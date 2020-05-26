@@ -27,7 +27,7 @@
 
       <div class="col-sm-6 form-group">
         <label for="dob">DOB:</label>
-        <input type="date" required max="2017-01-01" formControlName="dob" placeholder="Last name" name="lastName" class="form-control" id="dob">
+        <input type="date" required max="01-01-2017" formControlName="dob" placeholder="Last name" name="lastName" class="form-control" id="dob">
         <small class="text-danger" *ngIf="addForm.controls['dob'].hasError('required') && addForm.controls['dob'].touched">DOB is required</small>
       </div>
     </div>

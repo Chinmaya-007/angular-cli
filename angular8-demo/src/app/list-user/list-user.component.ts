@@ -10,7 +10,9 @@ import {ApiService} from "../core/api.service";
 })
 export class ListUserComponent implements OnInit {
 
-  users: any;
+  id:any;
+  user: user;
+
 
   constructor(private router: Router, private apiService: ApiService) { }
 
@@ -19,23 +21,24 @@ export class ListUserComponent implements OnInit {
       this.router.navigate(['login']);
       return;
     }
-    this.apiService.getUsers()
-      .subscribe( data => {
-        console.log(data);
-          this.users = data;
-      },
-      error=>this.errordata(error)
-
+    this.id=window.localStorage.getItem('id');
+    
+    this.apiService.getUserById(this.id).subscribe( 
+        data => {this.user = data.data
+        ;console.log("aaaaaaa"+this.user.firstName)},
+        error=>this.errordata(error)
+        
       );
+      
   }
   errordata(error){
-    console.log("hjkl"+error);
+    console.log("HERE"+error.message);
   }
 
-  deleteUser(user: User): void {
-    this.apiService.deleteUser(user.id)
+  deleteUser(): void {
+    this.apiService.deleteUser(this.user.id)
       .subscribe( data => {
-        this.users = this.users.filter(u => u !== user);
+        this.router.navigate(['login']);
       })
   };
 
@@ -48,4 +51,24 @@ export class ListUserComponent implements OnInit {
   addUser(): void {
     this.router.navigate(['add-user']);
   };
+}
+interface user{
+  id: any;
+  firstName: any;
+  lastName:any;
+  class:any;
+  dob:any;
+  fatherName:any;
+  motherName:any;
+  email:any;
+  altEmail:any;
+  phoneNumber:any;
+  altPhoneNumber:any;
+  address1:any;
+  address2:any;
+  district:any;
+  state:any;
+  pinCode:any;
+  country:any;ny;
+
 }
