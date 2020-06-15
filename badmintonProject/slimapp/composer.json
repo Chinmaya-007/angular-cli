@@ -1,0 +1,15 @@
+{
+    "require": {
+        "slim/slim": "^3.0",
+        "nowakowskir/php-jwt": "^1.1",
+        "tuupola/slim-jwt-auth": "^3.4",
+        "dyorg/slim-token-authentication": "^0.3.3"
+    },
+    "autoload":{
+        "classmap": [
+            "src/config",
+            "src/lib"
+        ]
+    }
+
+}

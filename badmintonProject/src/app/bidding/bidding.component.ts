@@ -14,7 +14,7 @@ import { AppComponent } from '../app.component';
 export class BiddingComponent implements OnInit {
   z1=0;
   z2=0;
-  z3=3;
+  z3=0;
   z4=0;
   z5=0;
   biddingForm: FormGroup;
